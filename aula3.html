@@ -11,10 +11,11 @@
     </style>
 </head>
 <body>
-    <div class="titulo"><h1>Cadastro de Filmes</h1></div>
+    <div class="titulo">
+        <h1>Cadastro de Filmes</h1>
+    </div>
 
     <div class="container">
-        <!-- Coloquei os inputs e botões DENTRO do form -->
         <form id="formfilme">
             <h2>Filme</h2>
             <input type="text" id="filme" required>
@@ -41,7 +42,6 @@
                 genero: document.getElementById('genero').value
             };
 
-            // Guarda na lista local
             listaDeFilmes.push(dados);
 
             fetch('aula3.php', {
