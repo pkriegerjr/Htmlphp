@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PHTMLJAVA</title>
+    <style>
+        body { background-color: darkslateblue; color: bisque; }
+        .titulo { text-align: center; }
+        .container { text-align: center; margin-top: 20px; }
+        input { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="titulo"><h1>Cadastro de Filmes</h1></div>
+
+    <div class="container">
+        <!-- Coloquei os inputs e botões DENTRO do form -->
+        <form id="formfilme">
+            <h2>Filme</h2>
+            <input type="text" id="filme" required> <!-- ID corrigido para 'filme' -->
+            
+            <h2>Gênero</h2>
+            <input type="text" id="genero" required>
+            
+            <div class="container2">
+                <button type="submit" id="Cadastrar">Cadastrar</button>
+                <button type="button" id="Finalizar">Finalizar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const listaDeFilmes = []; // Nome padronizado
+        const bot2 = document.getElementById('Finalizar');
+
+        document.getElementById('formfilme').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const dados = {
+                titulo: document.getElementById('filme').value, // Pegando o ID correto
+                genero: document.getElementById('genero').value
+            };
+
+            // Guarda na lista local
+            listaDeFilmes.push(dados);
+
+            fetch('aula3.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(dados)
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Resposta do PHP: ", data);
+                this.reset(); // Limpa o formulário
+            });
+        });
+
+        bot2.addEventListener('click', function() {
+            if (listaDeFilmes.length === 0) {
+                alert("Nenhum filme cadastrado.");
+                return;
+            }
+
+            let mensagem = "Filmes Cadastrados:\n";
+            listaDeFilmes.forEach(filme => {
+                mensagem += `- ${filme.titulo} (${filme.genero})\n`;
+            });
+
+            alert(mensagem);
+            console.log("Lista completa:", listaDeFilmes);
+        });
+    </script>
+</body>
+</html>
