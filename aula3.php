@@ -20,7 +20,7 @@
         </style>
     </head>
     <body>
-        <div class="titulo"><h1>Digite suas informações pessoais</h1></div>
+        <div class="titulo"><h1>Catalogo de filmes</h1></div>
         <div class="container">
             <h2>Filme</h2>
             <input type="text" name="" id="">
