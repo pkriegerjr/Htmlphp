@@ -17,7 +17,7 @@
         <!-- Coloquei os inputs e botões DENTRO do form -->
         <form id="formfilme">
             <h2>Filme</h2>
-            <input type="text" id="filme" required> <!-- ID corrigido para 'filme' -->
+            <input type="text" id="filme" required>
             
             <h2>Gênero</h2>
             <input type="text" id="genero" required>
@@ -30,14 +30,14 @@
     </div>
 
     <script>
-        const listaDeFilmes = []; // Nome padronizado
+        const listaDeFilmes = [];
         const bot2 = document.getElementById('Finalizar');
 
         document.getElementById('formfilme').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const dados = {
-                titulo: document.getElementById('filme').value, // Pegando o ID correto
+                titulo: document.getElementById('filme').value,
                 genero: document.getElementById('genero').value
             };
 
@@ -52,7 +52,7 @@
             .then(response => response.text())
             .then(data => {
                 console.log("Resposta do PHP: ", data);
-                this.reset(); // Limpa o formulário
+                this.reset();
             });
         });
 
