@@ -15,7 +15,7 @@
         </style>
     </head>
     <body>
-        <div class="centro"><h1>Digite suas informações pessoais</h1></div>
+        <div class="centro"><h1>Catalogo de filmes</h1></div>
 
         
 
